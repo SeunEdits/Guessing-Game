@@ -1,15 +1,21 @@
 {
-  "name": "guessing-game-root",
-  "private": true,
+  "name": "guessing-game",
+  "version": "1.0.0",
+  "description": "Multiplayer guessing game with Socket.IO",
+  "main": "index.js",
   "scripts": {
-    "build:server": "cd server && npm install",
-    "build:frontend": "cd frontend && npm install",
-    "start:server": "cd server && npm start",
-    "start:frontend": "cd frontend && npm start",
-    "start": "concurrently \"npm run start:server\" \"npm run start:frontend\""
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": ["game", "socket.io", "multiplayer"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.0",
+    "socket.io": "^4.0.0",
+    "ejs": "^3.1.8"
   },
   "devDependencies": {
-    "concurrently": "^8.0.0",
-    "serve": "^14.0.0"
+    "nodemon": "^2.0.0"
   }
 }
