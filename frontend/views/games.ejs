@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guessing Game - Play</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="http://localhost:4000/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="game-header">
+      <h1>🎮 Guessing Game</h1>
+      <div class="session-info">
+        <span class="session-id">Session: <%= sessionId %></span>
+        <button id="leaveBtn" class="btn btn-secondary">Leave Game</button>
+      </div>
+    </div>
+    
+    <div class="game-layout">
+      <!-- Players Sidebar -->
+      <div class="sidebar">
+        <h2>Players</h2>
+        <div id="playersList"></div>
+        
+        <h2>Scores</h2>
+        <div id="scoresList"></div>
+      </div>
+      
+      <!-- Main Game Area -->
+      <div class="game-area">
+        <div id="waitingScreen" class="screen">
+          <h2>Waiting for players...</h2>
+          <p>At least 3 players needed to start</p>
+          <div class="status-message" id="statusMessage"></div>
+        </div>
+        
+        <div id="masterScreen" class="screen" style="display: none;">
+          <h2>You are the Game Master!</h2>
+          <form id="questionForm">
+            <div class="form-group">
+              <label for="question">Question:</label>
+              <input type="text" id="question" placeholder="Enter your question" required>
+            </div>
+            <div class="form-group">
+              <label for="answer">Answer:</label>
+              <input type="text" id="answer" placeholder="Enter the answer" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Set Question</button>
+          </form>
+          
+          <div id="questionSet" style="display: none;">
+            <p class="success-message">✓ Question set successfully!</p>
+            <button id="startGameBtn" class="btn btn-success">Start Game</button>
+          </div>
+        </div>
+        
+        <div id="gameScreen" class="screen" style="display: none;">
+          <div class="question-display">
+            <h2>Question:</h2>
+            <p id="displayQuestion" class="question-text"></p>
+          </div>
+          
+          <div id="guessArea">
+            <form id="guessForm">
+              <div class="form-group">
+                <label for="guess">Your Answer:</label>
+                <input type="text" id="guess" placeholder="Enter your guess" required>
+              </div>
+              <p id="attemptsLeft"></p>
+              <button type="submit" class="btn btn-primary">Submit Guess</button>
+            </form>
+            <div id="guessResult" class="result-message"></div>
+          </div>
+          
+          <div id="masterWaiting" style="display: none;">
+            <p class="info-message">You are the Game Master. Waiting for players to guess...</p>
+          </div>
+          
+          <div id="timer" class="timer">Time left: <span id="timeLeft">60</span>s</div>
+        </div>
+        
+        <div id="resultsScreen" class="screen" style="display: none;">
+          <h2>Game Over!</h2>
+          <div id="winnerDisplay"></div>
+          <div id="answerReveal"></div>
+          <button id="newRoundBtn" class="btn btn-primary" style="display: none;">Ready for Next Round</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="/js/game.js"></script>
+</body>
+</html>

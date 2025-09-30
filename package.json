@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "start:server": "cd server && npm start",
-    "start:client": "cd client && npx serve .",
-    "start": "concurrently \"npm run start:server\" \"npm run start:client\""
+    "start:frontend": "cd frontend && npm start",
+    "start": "concurrently \"npm run start:server\" \"npm run start:frontend\""
   },
   "devDependencies": {
     "concurrently": "^8.0.0",

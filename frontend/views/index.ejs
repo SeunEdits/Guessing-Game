@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guessing Game - Join or Create</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>🎮 Guessing Game</h1>
+      <p class="subtitle">Join an existing game or create a new one</p>
+      
+      <form id="joinForm">
+        <div class="form-group">
+          <label for="playerName">Your Name</label>
+          <input type="text" id="playerName" placeholder="Enter your name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="sessionId">Session ID</label>
+          <input type="text" id="sessionId" placeholder="Enter session ID or leave blank to create">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Join / Create Game</button>
+      </form>
+      
+      <div id="error" class="error-message"></div>
+      
+      <div class="info-box">
+        <h3>How to Play:</h3>
+        <ul>
+          <li>The game master sets a question and answer</li>
+          <li>Other players try to guess the answer</li>
+          <li>Each player gets 3 attempts</li>
+          <li>First correct guess wins 10 points!</li>
+          <li>Game lasts 60 seconds</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <script src="/js/home.js"></script>
+</body>
+</html>
