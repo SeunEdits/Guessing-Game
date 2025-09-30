@@ -2,6 +2,8 @@
   "name": "guessing-game-root",
   "private": true,
   "scripts": {
+    "build:server": "cd server && npm install",
+    "build:frontend": "cd frontend && npm install",
     "start:server": "cd server && npm start",
     "start:frontend": "cd frontend && npm start",
     "start": "concurrently \"npm run start:server\" \"npm run start:frontend\""
